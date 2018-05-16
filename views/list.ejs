@@ -1,0 +1,51 @@
+
+<!-- buscador -->
+<div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar por ID, Codigo o descripción">
+        <span class="input-group-btn">
+            <form action="/productos/buscar/<%= productos.id %>" method="POST">
+                <input type="submit" value="Buscar" class="btn btn-primary">
+        </form>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <!-- Tabla de productos -->
+  <h2> <span class="label label-default">Artículos</span></h2>
+<!--<h1 class="display-4">Artículos</h1>-->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Articulo</th>
+            <th>Descripcion</th>
+            <!--<th>Unidad Venta</th>-->
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% productos.forEach(function(producto){ %>
+           
+            <tr data-id="<%= producto.id %>" data-model="producto">
+                <td><%= producto.id %></td>
+                <td><%= producto.codigo_producto %></td>
+                <td><%= producto.descripcion_prod %></td>
+               <!-- <td><%= producto.unidad_venta %></td> -->
+                <td>
+                   <!-- <a href="/productos/destroy/<%= producto.id %>" class="btn btn-success">Borrar</a>-->
+                    <form class="d-inline" action="/productos/destroy/<%= producto.id %>" method="POST">
+                    <input type="submit" value="destroy" class="btn btn-danger">
+                   <!-- <form class="d-inline" action="/productos/destroy/<%= producto.id %>" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="delete" class="btn btn-danger">
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>">-->
+                    </form>
+                </td>
+                
+            </tr>
+
+        <% }) %>
+    </tbody>
+</table>

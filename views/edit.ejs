@@ -1,0 +1,36 @@
+</br>
+</br>
+</br>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/productos/list">Productos</a></li>
+  <li class="breadcrumb-item active">Editar</li>
+</ol>
+
+<div class="container">
+    
+<form action="/productos/update/<%= producto.id %>" method="POST" accept-charset="UTF-8" class="form-ingresar">
+   <h3> <span class="label label-default">Editar Artículo</span></h3>
+    <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Código Producto</span>
+            <input type="text" name="codigo_producto" class="form-control" value="<%= producto.codigo_producto %>" placeholder="Ejemplo:01010101" aria-describedby="basic-addon1" required>
+          </div>
+        </br>
+   <h3> <span class="label label-default">Ingresar Descripción</span></h3>
+    <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2">Descripción Producto</span>
+            <input type="text" name="descripcion_prod" class="form-control" value="<%= producto.descripcion_prod %>" placeholder="Agregue descripción del artículo a ingresar" aria-describedby="basic-addon2" required>
+          </div>
+        </br>
+   <h3> <span class="label label-default">Ingresar Unidad</span></h3>
+    <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">Unidad Venta</span>
+            <input type="text" name="unidad_venta" class="form-control" value="<%= producto.unidad_venta %>" placeholder="PZA, KG, LT, CJA" aria-describedby="basic-addon3" required>
+          </div>
+
+</br>
+</br>
+<input type="submit" class="btn btn-primary">
+
+</form>
+
+</div>
